@@ -1,37 +1,50 @@
 # caculate_ap
 
-#### 介绍
+### 介绍
 计算准确率、漏检、错检
 
-#### 软件架构
-软件架构说明
+### 数据准备
+- 预测结果文件格式  
+```
+# index
+image_name
+box_num
+label left_top_x left_top_y right_bottom_x right_bottom_y score
+
+例如：
+# 0
+YanHuo00006.jpg
+1
+7 1941.0 977.7 2053.3 1178.3 0.9106
+# 1
+YanHuo00020.jpg
+2
+7 304.2 580.0 858.9 714.8 0.9550
+7 841.6 641.5 931.2 698.6 0.8103
+```
+- 标注信息：标准xml格式
 
 
-#### 安装教程
+### 准确率计算
+- 修改config.json
+```
+{
+    // 标注路径
+    "anns_folder": "YanHuo/xml",
+    // nms阈值
+    "overlap": 0.5,
+    // 预测的结果文件
+    "results_file": "YanHuo/tongdao_test_vgg16_YanHuo.frcnn",
+    // 图片路径
+    "imgs_folder": "YanHuo/jpg",
+    // 结果图片保存k路径
+    "out_folder": "result",
+    // 类别
+    "classes":["normal","abnormal","fuzzy"]
+}
+```
+- run
+```
+python caculate_acc.py
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
