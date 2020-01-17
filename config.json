@@ -1,0 +1,8 @@
+{
+  "anns_folder": "YanHuo/xml",
+  "overlap": 0.5,
+  "results_file": "YanHuo/tongdao_test_vgg16_YanHuo.frcnn",
+  "imgs_folder": "YanHuo/jpg",
+  "out_folder": "result",
+  "classes":["normal","abnormal","fuzzy"]
+}
